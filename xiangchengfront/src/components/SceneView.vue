@@ -1500,6 +1500,7 @@ export default {
           }
         })
 
+        //测试固定位置增加3d模型
         const modelSymbol = {
           type: "point-3d",
           symbolLayers: [
@@ -1508,10 +1509,10 @@ export default {
               resource: {
                 href: "/glb/irstation.glb"
               },
-              height: 20,
-              heading: 0,
+              height: 60,
+              heading: -50,
               tilt: 0,
-              scale: 1,
+              scale: 5,
               anchor: "relative",
               anchorPosition: {
                 x: 0,
@@ -1525,13 +1526,15 @@ export default {
         const modelGraphic = new Graphic({
           geometry: {
             type: "point",
-            x: 99.71,
-            y: 28.92,
-            z: 4000
+            x: 99.8087,
+            y: 28.9754,
+            z: 2862
           },
           symbol: modelSymbol
         });
+
         graphicsLayer.add(modelGraphic);
+        window.aa=modelGraphic
 
       } catch (error) {
         console.error('地图初始化失败：', error)
@@ -1778,7 +1781,6 @@ ul {
 /* 搜索功能 */
 .searchTab {
   overflow: auto;
-  width: 24%;
   position: absolute;
   background-color: rgba(255, 255, 255, 0.6);
   left: 80px;
@@ -1788,7 +1790,8 @@ ul {
   display: none;
   height: 80%;
   // overflow: auto;
-  min-width: 300px;
+  //min-width: 300px;
+  width: 355px;
 }
 /* 河流信息 */
 .detailTab {
