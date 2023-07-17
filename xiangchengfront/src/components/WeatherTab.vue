@@ -11,7 +11,8 @@
       <div class="weather-content-row">能见度：{{ visibility }}</div>
     </div>
   </div> -->
-  <div id="he-plugin-standard"></div>
+  <div id="he-plugin-standard">
+  </div>
 </template>
 <script>
 // import { reactive, toRefs, ref } from 'vue'
@@ -98,6 +99,7 @@ export default {
         var sn = d.getElementsByTagName('script')[0]
         sn.parentNode.insertBefore(c, sn)
         sn.parentNode.insertBefore(s, sn)
+
       })(document)
     })
     window.onload = function () {
@@ -105,8 +107,6 @@ export default {
       document.getElementById('he-plugin-standard').style.width = '100%'
       document.getElementById('he-plugin-standard').style.heigth = '100%'
       document.getElementById('he-plugin-standard').style.backgroundSize = 'auto'
-
-      document.getElementsByClassName('wv-lt-refresh')[0].children[0].href='https://map.qweather.com/index.html?lat=28.92&lon=99.71&level=8&layer=cloud'
     }
   }
 }

@@ -259,7 +259,6 @@ export default {
       return Search
     }
   },
-  props: {},
   mounted() {},
   setup(props) {
     const state = reactive({
@@ -329,15 +328,19 @@ export default {
       if (name === '水系') {
         bus.emit('layerLocation', [name, state.watersystemsresult])
       } else if (name === '水安全') {
-        if (rowData.name.split('-')[4] === '堤防') {
+        if (rowData.type === '堤防') {
           bus.emit('layerLocation', ['堤防', rowData])
         } else {
+          //如果是护岸的话extraJson是ID
+          rowData.id = Number(rowData.extraJson)
           bus.emit('layerLocation', ['护岸', rowData])
         }
       } else if (name === '水利工程') {
         if (rowData.type === '水电站') {
           bus.emit('layerLocation', ['水电站', rowData])
         } else {
+          //将水文站的id存到extraJson中
+          rowData.id = Number(rowData.extraJson)
           bus.emit('layerLocation', ['水文站', rowData])
         }
       } else {

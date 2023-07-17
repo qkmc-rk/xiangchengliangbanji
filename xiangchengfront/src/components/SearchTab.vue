@@ -46,50 +46,99 @@
       </div>
       <div class="data-table">
         <el-table v-if="watersafetyresult.length !== 0" :data="watersafetyresult" style=" background-color: rgba(255,255,255,0)" row-key="id">
-          <el-table-column prop="id" label="ID" />
+          <el-table-column prop="id" label="堤防ID" />
+          <el-table-column prop="extraJson" label="护岸ID" />
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="type" label="类型" />
+          <el-table-column fixed="right" label="更多">
+            <template #default="scope">
+              <el-button link type="primary" size="small" @click="gotoDetail(scope.row.type, scope.row)">详情</el-button>
+              <el-button link type="primary" size="small" @click="layerLocation(scope.row.type, scope.row)">跳转</el-button>
+            </template>
+          </el-table-column>
         </el-table>
         <el-table v-if="waterresourcesresult.length !== 0" :data="waterresourcesresult" style=" background-color: rgba(255,255,255,0)" row-key="id">
           <el-table-column prop="id" label="ID" />
-          <el-table-column prop="resource_type" label="类型" />
+          <el-table-column prop="resourceType" label="类型" />
           <el-table-column prop="extractionRate" label="利用率" />
+          <el-table-column fixed="right" label="更多">
+            <template #default="scope">
+              <el-button link type="primary" size="small" @click="gotoDetail('水资源', scope.row)">详情</el-button>
+              <el-button link type="primary" size="small" @click="layerLocation('水资源', scope.row)">跳转</el-button>
+            </template>
+          </el-table-column>
         </el-table>
         <el-table v-if="waterprojectsresult.length !== 0" :data="waterprojectsresult" style=" background-color: rgba(255,255,255,0)" row-key="id">
           <el-table-column prop="id" label="ID" />
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="type" label="类型" />
           <el-table-column prop="status" label="状态" />
+          <el-table-column fixed="right" label="更多">
+            <template #default="scope">
+              <el-button link type="primary" size="small" @click="gotoDetail('水利工程', scope.row)">详情</el-button>
+              <el-button link type="primary" size="small" @click="layerLocation('水利工程', scope.row)">跳转</el-button>
+            </template>
+          </el-table-column>
         </el-table>
         <el-table v-if="disasterpreventionpointresult.length !== 0" :data="disasterpreventionpointresult" style=" background-color: rgba(255,255,255,0)" row-key="id">
           <el-table-column prop="id" label="ID" />
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="type" label="类型" />
           <el-table-column prop="description" label="描述" />
+          <el-table-column fixed="right" label="更多">
+            <template #default="scope">
+              <el-button link type="primary" size="small" @click="gotoDetail('灾害点', scope.row)">详情</el-button>
+              <el-button link type="primary" size="small" @click="layerLocation('灾害点', scope.row)">跳转</el-button>
+            </template>
+          </el-table-column>
         </el-table>
         <el-table v-if="solarirstationresult.length !== 0" :data="solarirstationresult" style=" background-color: rgba(255,255,255,0)" row-key="id">
           <el-table-column prop="id" label="ID" />
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="region" label="区域" />
           <el-table-column prop="river" label="流域" />
+          <el-table-column fixed="right" label="更多">
+            <template #default="scope">
+              <el-button link type="primary" size="small" @click="gotoDetail('太阳能提灌站', scope.row)">详情</el-button>
+              <el-button link type="primary" size="small" @click="layerLocation('太阳能提灌站', scope.row)">跳转</el-button>
+            </template>
+          </el-table-column>
         </el-table>
         <el-table v-if="sandsiteresult.length !== 0" :data="sandsiteresult" style=" background-color: rgba(255,255,255,0)" row-key="id">
           <el-table-column prop="id" label="ID" />
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="region" label="区域" />
           <el-table-column prop="river" label="流域" />
+          <el-table-column fixed="right" label="更多">
+            <template #default="scope">
+              <el-button link type="primary" size="small" @click="gotoDetail('采砂点', scope.row)">详情</el-button>
+              <el-button link type="primary" size="small" @click="layerLocation('采砂点', scope.row)">跳转</el-button>
+            </template>
+          </el-table-column>
         </el-table>
         <el-table v-if="riversidebuildingresult.length !== 0" :data="riversidebuildingresult" style=" background-color: rgba(255,255,255,0)" row-key="id">
           <el-table-column prop="id" label="ID" />
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="region" label="区域" />
           <el-table-column prop="river" label="流域" />
+          <el-table-column fixed="right" label="更多">
+            <template #default="scope">
+              <el-button link type="primary" size="small" @click="gotoDetail('涉河建筑物', scope.row)">详情</el-button>
+              <el-button link type="primary" size="small" @click="layerLocation('涉河建筑物', scope.row)">跳转</el-button>
+            </template>
+          </el-table-column>
         </el-table>
         <el-table v-if="waternetpiperesult.length !== 0" :data="waternetpiperesult" style=" background-color: rgba(255,255,255,0)" row-key="id">
           <el-table-column prop="id" label="ID" />
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="region" label="区域" />
           <el-table-column prop="river" label="流域" />
+          <el-table-column fixed="right" label="更多">
+            <template #default="scope">
+              <el-button link type="primary" size="small" @click="gotoDetail('水网管线', scope.row)">详情</el-button>
+              <el-button link type="primary" size="small" @click="layerLocation('水网管线', scope.row)">跳转</el-button>
+            </template>
+          </el-table-column>
         </el-table>
         <el-table v-if="irrigationarearesult.length !== 0" :data="irrigationarearesult" style=" background-color: rgba(255,255,255,0)" row-key="id">
           <el-table-column prop="id" label="ID" />
@@ -98,12 +147,24 @@
           <el-table-column prop="area" label="面积" />
           <el-table-column prop="region" label="区域" />
           <el-table-column prop="river" label="流域" />
+          <el-table-column fixed="right" label="更多">
+            <template #default="scope">
+              <el-button link type="primary" size="small" @click="gotoDetail('灌区', scope.row)">详情</el-button>
+              <el-button link type="primary" size="small" @click="layerLocation('灌区', scope.row)">跳转</el-button>
+            </template>
+          </el-table-column>
         </el-table>
         <el-table v-if="proposalreservoirresult.length !== 0" :data="proposalreservoirresult" style=" background-color: rgba(255,255,255,0)" row-key="id">
           <el-table-column prop="id" label="ID" />
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="region" label="区域" />
           <el-table-column prop="river" label="流域" />
+          <el-table-column fixed="right" label="更多">
+            <template #default="scope">
+              <el-button link type="primary" size="small" @click="gotoDetail('拟建水库', scope.row)">详情</el-button>
+              <el-button link type="primary" size="small" @click="layerLocation('拟建水库', scope.row)">跳转</el-button>
+            </template>
+          </el-table-column>
         </el-table>
       </div>
     </el-tab-pane>
@@ -351,6 +412,16 @@ export default {
   },
   methods: {
     async searchWithRegion() {
+      this.watersafetyresult= []
+      this.waterresourcesresult= []
+      this.waterprojectsresult= []
+      this.disasterpreventionpointresult= []
+      this.solarirstationresult= []
+      this.sandsiteresult= []
+      this.riversidebuildingresult= []
+      this.waternetpiperesult= []
+      this.irrigationarearesult= []
+      this.proposalreservoirresult= []
       console.log('搜索开始')
       console.log(this.input3, this.select, this.typevalue)
       const type = this.typevalue //水利工程类型
@@ -453,8 +524,35 @@ export default {
       // input3: '',
       // typevalue: ''
     })
+    const gotoDetail = (name, rowData) => {
+      console.log('跳转到详情Tab')
+      if (name === '水系') {
+        bus.emit('loadMapData', [name, state.watersystemsresult])
+      } else if (name === '水安全') {
+        if (rowData.name.split('-')[4] === '堤防') {
+          bus.emit('loadMapData', ['堤防', rowData])
+        } else {
+          bus.emit('loadMapData', ['护岸', rowData])
+        }
+      } else if (name === '水利工程') {
+        if (rowData.type === '水电站') {
+          bus.emit('loadMapData', ['水电站', rowData])
+        } else {
+          bus.emit('loadMapData', ['水文站', rowData])
+        }
+      } else {
+        bus.emit('loadMapData', [name, rowData])
+        console.log(rowData)
+      }
+    }
+    const layerLocation = (name, rowData) => {
+      bus.emit('layerLocation', [name, rowData])
+    }
+
     return {
-      ...toRefs(state)
+      ...toRefs(state),
+      gotoDetail,
+      layerLocation
     }
   }
 }

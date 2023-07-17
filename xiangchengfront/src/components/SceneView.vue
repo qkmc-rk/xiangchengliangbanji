@@ -30,10 +30,11 @@
 
   </div>
   <div class="weatherTab">
-    <div class="right-top-close" @click="weatherTabClose"><el-icon>
-        <CloseBold />
-      </el-icon></div>
+    <div class="right-top-close" @click="weatherTabClose"><el-icon><CloseBold /></el-icon></div>
     <WeatherTab></WeatherTab>
+    <div class="professional-data">
+      <a target="_blank" href="https://map.qweather.com/index.html?lat=28.92&lon=99.71&level=8&layer=cloud">专业数据</a>
+    </div>
   </div>
   <div ref="mapViewNode" style="height: calc(100vh - 40px);">
   </div>
@@ -177,6 +178,8 @@ import WeatherTab from './WeatherTab.vue'
 import axios from '../api/request.js'
 import CoordinateConversion from '@arcgis/core/widgets/CoordinateConversion'
 import Slider from '@arcgis/core/widgets/Slider.js'
+import SceneLayer from "@arcgis/core/layers/SceneLayer.js";
+import Graphic from "@arcgis/core/Graphic";
 
 export default {
   name: 'SceneView',
@@ -258,7 +261,6 @@ export default {
       }
       featureLayer.queryFeatures(query).then(result => {
         const feature = result.features[0]
-        console.log('query到的features', feature)
         // 高亮显示查询结果
         if (this.highlight) {
           this.highlight.remove()
@@ -268,7 +270,6 @@ export default {
         })
         //跳转位置
         if (zoom === 12) {
-          console.log('跳到这里去了:', feature.geometry.extent.center)
           let center = feature.geometry.extent.center
           let camera = new Camera({
             position: new Point({
@@ -1490,9 +1491,48 @@ export default {
           this.detailPaneDisplay()
         })
         bus.on('layerLocation', data => {
-          //还要进行图层的定位
-          this.layerDataLocation(data[0], data[1].id, 14)
+          if (data[0] === '护岸'){
+            //护岸使用extrajson存储id
+            this.layerDataLocation(data[0], Number(data[1].extraJson) - 1, 14)
+          }else{
+            //还要进行图层的定位
+            this.layerDataLocation(data[0], data[1].id - 1, 14)
+          }
         })
+
+        const modelSymbol = {
+          type: "point-3d",
+          symbolLayers: [
+            {
+              type: "object",
+              resource: {
+                href: "/glb/irstation.glb"
+              },
+              height: 20,
+              heading: 0,
+              tilt: 0,
+              scale: 1,
+              anchor: "relative",
+              anchorPosition: {
+                x: 0,
+                y: 0,
+                z: 0
+              }
+            }
+          ]
+        };
+
+        const modelGraphic = new Graphic({
+          geometry: {
+            type: "point",
+            x: 99.71,
+            y: 28.92,
+            z: 4000
+          },
+          symbol: modelSymbol
+        });
+        graphicsLayer.add(modelGraphic);
+
       } catch (error) {
         console.error('地图初始化失败：', error)
       }
@@ -1746,7 +1786,7 @@ ul {
   border-radius: 5px;
   box-shadow: #6e6e6e;
   display: none;
-  height: 40%;
+  height: 80%;
   // overflow: auto;
   min-width: 300px;
 }
@@ -1769,7 +1809,7 @@ ul {
 /* 天气预警 */
 .weatherTab {
   // height: 20%;
-  width: 14%;
+  //width: 14%;
   min-height: 250px;
   min-width: 200px;
   // width: 230px;
@@ -1924,4 +1964,16 @@ ul {
   background-color: rgb(119, 89, 37);
 }
 /*洪水海平面控制↑*/
+
+.professional-data {
+  text-align: center;
+  background-color: rgb(60, 123, 206);
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.professional-data a{
+  text-decoration: none;
+  color: white;
+}
 </style>
