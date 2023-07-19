@@ -5,9 +5,9 @@
       <h1 class="logo-title">乡城县水利数字沙盘</h1>
     </div>
     <ul class="river-system">
-      <li class="water-system-button" @click="layerDataLocation('水系', 27, 12)">许曲</li>
       <li class="water-system-button" @click="layerDataLocation('水系', 29, 12)">定曲</li>
       <li class="water-system-button" @click="layerDataLocation('水系', 28, 12)">玛曲</li>
+      <li class="water-system-button" @click="layerDataLocation('水系', 27, 12)">许曲</li>
     </ul>
     <div class="navbar-right">
       <img src="/images/avatar.jpg" alt="Avatar">
@@ -1376,9 +1376,9 @@ export default {
               link.download = 'screenshot.png' // Set the download filename
               link.href = screenshoot.dataUrl // Set the base64 data URL as the href
               link.click() // Trigger the download
-              setTimeout(() => {
-                link.remove() // Remove the link element
-              }, 1000)
+              // setTimeout(() => {
+              //   link.remove() // Remove the link element
+              // }, 1000)
             })
         })
 
