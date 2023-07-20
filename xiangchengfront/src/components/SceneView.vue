@@ -1506,8 +1506,9 @@ export default {
           }
         })
 
+
         //测试固定位置增加3d模型
-        const modelSymbol = {
+        const irstationModelSymbol = {
           type: "point-3d",
           symbolLayers: [
             {
@@ -1528,19 +1529,82 @@ export default {
             }
           ]
         };
-
-        const modelGraphic = new Graphic({
+        const irstationModelGraphic = new Graphic({
           geometry: {
             type: "point",
             x: 99.8087,
             y: 28.9754,
             z: 2862
           },
-          symbol: modelSymbol
+          symbol: irstationModelSymbol
+        });
+        //水库1
+        const reservoirModelSymbol = {
+          type: "point-3d",
+          symbolLayers: [
+            {
+              type: "object",
+              resource: {
+                href: "/glb/sjg.glb"
+              },
+              height: 60,
+              heading: 40,
+              tilt: 0,
+              scale: 5,
+              anchor: "relative",
+              anchorPosition: {
+                x: 0,
+                y: 0,
+                z: 0
+              }
+            }
+          ]
+        };
+        const reservoirModelGraphic1 = new Graphic({
+          geometry: {
+            type: "point",
+            x: 99.7595,
+            y: 29.0250,
+            z: 3527.5
+          },
+          symbol: reservoirModelSymbol
+        });
+        //水库2
+        const reservoirModelGraphic2 = new Graphic({
+          geometry: {
+            type: "point",
+            x: 99.8790,
+            y: 28.7451,
+            z: 3234.39
+          },
+          symbol: reservoirModelSymbol
+        });
+        //水库3
+        const reservoirModelGraphic3 = new Graphic({
+          geometry: {
+            type: "point",
+            x: 99.4970,
+            y: 29.4197,
+            z: 3166.83
+          },
+          symbol: reservoirModelSymbol
+        });
+        //水库4
+        const reservoirModelGraphic4 = new Graphic({
+          geometry: {
+            type: "point",
+            x: 99.6996,
+            y: 29.3768,
+            z: 3699.72
+          },
+          symbol: reservoirModelSymbol
         });
 
-        graphicsLayer.add(modelGraphic);
-        window.aa=modelGraphic
+        graphicsLayer.add(reservoirModelGraphic1);
+        graphicsLayer.add(reservoirModelGraphic2);
+        graphicsLayer.add(reservoirModelGraphic3);
+        graphicsLayer.add(reservoirModelGraphic4);
+        graphicsLayer.add(irstationModelGraphic);
 
       } catch (error) {
         console.error('地图初始化失败：', error)
