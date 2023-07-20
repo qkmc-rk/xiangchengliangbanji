@@ -124,6 +124,7 @@
           <el-table :data="proposalreservoirresult" style="width: 100%" :empty-text="'暂无数据'">
             <el-table-column prop="id" label="ID" />
             <el-table-column prop="name" label="名称" />
+            <el-table-column prop="O_Comment" label="内容" />
             <el-table-column prop="region" label="区域" />
             <el-table-column prop="river" label="流域" />
             <el-table-column fixed="right" label="更多">

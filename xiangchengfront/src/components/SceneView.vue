@@ -1494,6 +1494,12 @@ export default {
           if (data[0] === '护岸'){
             //护岸使用extrajson存储id
             this.layerDataLocation(data[0], Number(data[1].extraJson) - 1, 14)
+          }else if(data[0] === '水利工程'){
+            data[0] = data[1].type
+            if (data[0] === '水文站'){
+              data[1].id = Number(data[1].extraJson)
+            }
+            this.layerDataLocation(data[0], data[1].id - 1, 14)
           }else{
             //还要进行图层的定位
             this.layerDataLocation(data[0], data[1].id - 1, 14)

@@ -444,7 +444,8 @@ export default {
         const waterresourcesresult = await axios({ url: `/api/generic/waterresources/byregion`, method: 'get', data: { region: region } })
         this.waterresourcesresult = waterresourcesresult.data
       } else if (type === '水利工程') {
-        const waterprojectsresult = await axios({ url: `/api/generic/waterproject/byregion`, method: 'get', data: { region: region } })
+        const waterprojectsresult = await axios({ url: `/api/generic/waterprojects/byregion`, method: 'get', data: { region: region } })
+        console.log(waterprojectsresult.data)
         this.waterprojectsresult = waterprojectsresult.data
       } else if (type === '灾害转移') {
         //还没考虑
