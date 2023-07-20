@@ -46,8 +46,8 @@
       </div>
       <div class="data-table">
         <el-table v-if="watersafetyresult.length !== 0" :data="watersafetyresult" style=" background-color: rgba(255,255,255,0)" row-key="id">
-          <el-table-column prop="id" label="堤防ID" />
-          <el-table-column prop="extraJson" label="护岸ID" />
+<!--          <el-table-column prop="id" label="堤防ID" />-->
+<!--          <el-table-column prop="extraJson" label="护岸ID" />-->
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="type" label="类型" />
           <el-table-column fixed="right" label="更多">
@@ -58,7 +58,7 @@
           </el-table-column>
         </el-table>
         <el-table v-if="waterresourcesresult.length !== 0" :data="waterresourcesresult" style=" background-color: rgba(255,255,255,0)" row-key="id">
-          <el-table-column prop="id" label="ID" />
+<!--          <el-table-column prop="id" label="ID" />-->
           <el-table-column prop="resourceType" label="类型" />
           <el-table-column prop="extractionRate" label="利用率" />
           <el-table-column fixed="right" label="更多">
@@ -69,7 +69,7 @@
           </el-table-column>
         </el-table>
         <el-table v-if="waterprojectsresult.length !== 0" :data="waterprojectsresult" style=" background-color: rgba(255,255,255,0)" row-key="id">
-          <el-table-column prop="id" label="ID" />
+<!--          <el-table-column prop="id" label="ID" />-->
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="type" label="类型" />
           <el-table-column prop="status" label="状态" />
@@ -81,7 +81,7 @@
           </el-table-column>
         </el-table>
         <el-table v-if="disasterpreventionpointresult.length !== 0" :data="disasterpreventionpointresult" style=" background-color: rgba(255,255,255,0)" row-key="id">
-          <el-table-column prop="id" label="ID" />
+<!--          <el-table-column prop="id" label="ID" />-->
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="type" label="类型" />
           <el-table-column prop="description" label="描述" />
@@ -93,7 +93,7 @@
           </el-table-column>
         </el-table>
         <el-table v-if="solarirstationresult.length !== 0" :data="solarirstationresult" style=" background-color: rgba(255,255,255,0)" row-key="id">
-          <el-table-column prop="id" label="ID" />
+<!--          <el-table-column prop="id" label="ID" />-->
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="region" label="区域" />
           <el-table-column prop="river" label="流域" />
@@ -105,7 +105,7 @@
           </el-table-column>
         </el-table>
         <el-table v-if="sandsiteresult.length !== 0" :data="sandsiteresult" style=" background-color: rgba(255,255,255,0)" row-key="id">
-          <el-table-column prop="id" label="ID" />
+<!--          <el-table-column prop="id" label="ID" />-->
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="region" label="区域" />
           <el-table-column prop="river" label="流域" />
@@ -117,7 +117,7 @@
           </el-table-column>
         </el-table>
         <el-table v-if="riversidebuildingresult.length !== 0" :data="riversidebuildingresult" style=" background-color: rgba(255,255,255,0)" row-key="id">
-          <el-table-column prop="id" label="ID" />
+<!--          <el-table-column prop="id" label="ID" />-->
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="region" label="区域" />
           <el-table-column prop="river" label="流域" />
@@ -129,7 +129,7 @@
           </el-table-column>
         </el-table>
         <el-table v-if="waternetpiperesult.length !== 0" :data="waternetpiperesult" style=" background-color: rgba(255,255,255,0)" row-key="id">
-          <el-table-column prop="id" label="ID" />
+<!--          <el-table-column prop="id" label="ID" />-->
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="region" label="区域" />
           <el-table-column prop="river" label="流域" />
@@ -141,7 +141,7 @@
           </el-table-column>
         </el-table>
         <el-table v-if="irrigationarearesult.length !== 0" :data="irrigationarearesult" style=" background-color: rgba(255,255,255,0)" row-key="id">
-          <el-table-column prop="id" label="ID" />
+<!--          <el-table-column prop="id" label="ID" />-->
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="perimet" label="周长" />
           <el-table-column prop="area" label="面积" />
@@ -155,7 +155,7 @@
           </el-table-column>
         </el-table>
         <el-table v-if="proposalreservoirresult.length !== 0" :data="proposalreservoirresult" style=" background-color: rgba(255,255,255,0)" row-key="id">
-          <el-table-column prop="id" label="ID" />
+<!--          <el-table-column prop="id" label="ID" />-->
           <el-table-column prop="name" label="名称" />
           <el-table-column prop="region" label="区域" />
           <el-table-column prop="river" label="流域" />

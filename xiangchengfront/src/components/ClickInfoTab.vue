@@ -21,7 +21,6 @@
     <div class="disasterInfo" v-if="name === '护岸'">
       <el-descriptions :border="true" :column="2">
         <el-descriptions-item label="FID">{{ disasterInfo.id || disasterInfo.FID }}</el-descriptions-item>
-        <el-descriptions-item label="ID">{{ disasterInfo.id }}</el-descriptions-item>
         <el-descriptions-item label="名称">{{ disasterInfo.name }}</el-descriptions-item>
         <el-descriptions-item label="类型">{{ disasterInfo.type }}</el-descriptions-item>
         <el-descriptions-item label="所属行政区划">{{ disasterInfo.region }}</el-descriptions-item>
@@ -191,9 +190,6 @@ export default {
         async newattributes => {
           console.log(props.attributes, newattributes)
           try {
-            // const disasterInfoRes = await axios({ url: `/api/water-systems/${newattributes.FID}`, method: 'get' }) //水系基本信息
-            // state.disasterInfo = disasterInfoRes.data
-
             state.disasterInfo = props.attributes
             state.name = props.name
             console.log('在这里请求数据', state.disasterInfo)
