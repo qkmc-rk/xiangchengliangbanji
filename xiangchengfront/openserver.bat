@@ -22,3 +22,9 @@ echo Running script on %HOST%...
 plink -pw %PASSWORD% %USER%@%HOST% "%REMOTE_SCRIPT%"
 
 echo Script execution complete.
+
+echo Pushing changes to remote repository github...
+
+git push
+
+echo push to github complete.
