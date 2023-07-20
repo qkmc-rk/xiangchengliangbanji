@@ -548,8 +548,8 @@ export default {
           radius: '50%',
           data: [
             { value: 3, name: '干流' },
-            { value: 27, name: '支流' },
-            { value: 5, name: '湖泊' },
+            { value: 29, name: '支流' },
+            { value: 7, name: '湖泊' },
           ]
         }
       ]
