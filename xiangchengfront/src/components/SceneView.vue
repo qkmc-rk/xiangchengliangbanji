@@ -1507,7 +1507,7 @@ export default {
         })
 
 
-        //测试固定位置增加3d模型
+        //提灌站1
         const irstationModelSymbol = {
           type: "point-3d",
           symbolLayers: [
@@ -1529,6 +1529,28 @@ export default {
             }
           ]
         };
+        // 提灌站2
+        const irstationModelSymbol2 = {
+          type: "point-3d",
+          symbolLayers: [
+            {
+              type: "object",
+              resource: {
+                href: "/glb/irstation.glb"
+              },
+              height: 60,
+              heading: 0,
+              tilt: 0,
+              scale: 5,
+              anchor: "relative",
+              anchorPosition: {
+                x: 0,
+                y: 0,
+                z: 0
+              }
+            }
+          ]
+        };
         const irstationModelGraphic = new Graphic({
           geometry: {
             type: "point",
@@ -1538,6 +1560,17 @@ export default {
           },
           symbol: irstationModelSymbol
         });
+        //洞松太阳能提灌站
+        const irstationModelGraphic2 = new Graphic({
+          geometry: {
+            type: "point",
+            x: 99.8057,
+            y: 28.7618,
+            z: 2590.58
+          },
+          symbol: irstationModelSymbol2
+        });
+
         //水库1
         const reservoirModelSymbol = {
           type: "point-3d",
@@ -1605,6 +1638,7 @@ export default {
         graphicsLayer.add(reservoirModelGraphic3);
         graphicsLayer.add(reservoirModelGraphic4);
         graphicsLayer.add(irstationModelGraphic);
+        graphicsLayer.add(irstationModelGraphic2);
 
       } catch (error) {
         console.error('地图初始化失败：', error)

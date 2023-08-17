@@ -32,6 +32,10 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')  // 重定向.
       }
+    },
+    //尝试解决页面自动刷新
+    hmr: {
+      clientPort: 80
     }
   },
   build: {
